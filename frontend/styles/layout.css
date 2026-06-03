@@ -13,6 +13,18 @@
     "aside main";
   grid-template-columns: 300px 1fr;
   align-content: end;
+  @media (min-width: 1600px) {
+    max-width: 1500px;
+    align-content: center;
+    main {
+      /* aspect-ratio: 16 / 10; */
+    }
+  }
+  @media (min-width: 1600px) and (max-aspect-ratio: 16/8.5) {
+    main {
+      aspect-ratio: 16 / 9;
+    }
+  }
   & > h1 {
     grid-area: heading;
     display: none;
@@ -32,10 +44,12 @@
   }
   @media (max-width: 650px) {
     grid-template-areas:
-      "header header"
+      /*"header header"*/
       "aside aside"
       "heading heading"
       "main main";
+    gap: 0.5rem;
+    padding: 1rem;
     & > h1 {
       font-size: clamp(2.5rem, 10vw, 3.5rem);
       font-weight: 900;
@@ -61,6 +75,7 @@
       nav {
         ul {
           flex-direction: row !important;
+          padding-block: 0.5rem;
         }
       }
     }
@@ -82,7 +97,7 @@
 
     @media (max-width: 900px) {
       position: fixed;
-      top: 2rem;
+      top: 1rem;
       min-width: initial;
     }
 
@@ -152,24 +167,26 @@
   }
 
   main {
+    @media (max-width: 900px) {
+      height: initial;
+      padding: clamp(0.5rem, 5vw, 2rem);
+    }
     grid-area: main;
     position: relative;
+
     .content-wrapper {
       position: absolute;
-      top: 3rem;
-      bottom: 3rem;
-      left: 3rem;
-      overflow: hidden;
       max-height: 100%;
-      padding-inline-end: 2rem;
-      margin-inline-end: 2.5rem;
+      inset: clamp(1rem, 5vw, 3rem);
       > div {
         scroll-behavior: smooth;
       }
       @media (max-width: 900px) {
-        height: initial;
         position: relative;
-        left: 2rem;
+        inset: initial;
+        > div {
+          /* overflow: clip; */
+        }
         h1 {
           /* display: none; */
         }
@@ -183,6 +200,9 @@
     }
   }
   section {
+    > p.lead {
+      margin-left: 1em;
+    }
     > h2 {
       padding-bottom: 0.25em;
       border-bottom: 1px solid var(--surface-color);
@@ -198,14 +218,15 @@
       }
       > h3:first-of-type {
         padding-left: 0.5em;
-        border-left: 0.25em solid color-mix(in srgb, var(--accent-color) 30%, transparent);
+        border-left: 0.25em solid
+          color-mix(in srgb, var(--accent-color) 30%, transparent);
         line-height: 1em;
       }
-      > :not(h3:first-of-type){
-        margin-inline: 2rem;
+      > :not(h3:first-of-type) {
+        margin-inline: clamp(0.25rem, 5vw, 2rem);
       }
-      h4{
-        &:not(.example){
+      h4 {
+        &:not(.example) {
           margin-block: 2rem 1rem;
         }
       }
