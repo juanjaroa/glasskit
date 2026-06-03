@@ -58,10 +58,14 @@
 
 .border-radius-a {
   border-radius: 0.75rem 3rem 0.75rem 3rem;
+  border-radius: clamp(0.25rem, 2.5vw, 0.75rem) clamp(1.875rem, 4vw, 2.75rem) clamp(0.25rem, 2.5vw, 0.75rem) clamp(1.875rem, 4vw, 2.75rem);
 }
 
 .border-radius-b {
   border-radius: 3rem 0.75rem 3rem 0.75rem;
+  border-radius: clamp(1.875rem, 4vw, 2.75rem) clamp(0.25rem, 2.5vw, 0.75rem) clamp(1.875rem, 4vw, 2.75rem) clamp(0.25rem, 2.5vw, 0.75rem);
+
+  
 }
 
 body {
@@ -103,6 +107,7 @@ body {
     margin: 0;
     padding: 1.25rem;
     li {
+      margin-bottom: 0;
       a {
         i {
           font-size: 1.75rem;
@@ -146,9 +151,6 @@ header {
       list-style: none;
       margin: 0;
       max-width: 100%;
-      overflow-x: scroll;
-
-      scroll-behavior: smooth;
       li {
         min-width: fit-content;
         a {
@@ -294,6 +296,9 @@ header {
   bottom: 0.375em;
   display: flex;
   flex-direction: column;
+  @media (max-width: 900px) {
+    display: none;
+  }
 }
 
 .scroll-button {
