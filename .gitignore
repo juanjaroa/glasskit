@@ -1,0 +1,63 @@
+# =========================
+# Node / dependencies
+# =========================
+node_modules/
+
+# =========================
+# Logs
+# =========================
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# =========================
+# Env / secrets
+# =========================
+.env*
+!.env.example
+
+# Cloudflare worker secrets
+worker/.dev.vars*
+!worker/.dev.vars.example
+
+# =========================
+# Cloudflare / Wrangler
+# =========================
+worker/.wrangler/
+
+# =========================
+# Coverage / testing
+# =========================
+coverage/
+.nyc_output/
+
+# =========================
+# Editor / OS
+# =========================
+.vscode/
+.DS_Store
+
+# =========================
+# Cache
+# =========================
+.cache/
+
+# =========================
+# Archivos pesados / innecesarios
+# =========================
+*.zip
+*.ai
+*.eps
+
+# =========================
+# Solo contiene los iconos antes de subir a inconly
+# =========================
+frontend/img/iconos-raw/
+
+# =========================
+# TREE: Estructura del proyecto / bash: tree -a -I 'node_modules|.git' > structure.txt
+# =========================
+structure.txt

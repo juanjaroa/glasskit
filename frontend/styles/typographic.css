@@ -1,0 +1,490 @@
+/* =========================
+   TOKENS
+========================= */
+
+:root {
+  --fs-1: clamp(1.875rem, 3vw, 2rem);
+  --fs-2: clamp(1.5rem, 2.5vw, 1.75rem);
+  --fs-3: clamp(1.375rem, 2vw, 1.5rem);
+  --fs-4: 1.3rem;
+  --fs-5: 1.25rem;
+  --fs-6: 1.125rem;
+  --fs-7: 1.0625rem;
+  --fs-8: 0.875rem;
+  --lh-tight: 1.1;
+  --lh-base: 1.3;
+}
+
+/* =========================
+   HAFFER
+========================= */
+
+@font-face {
+  font-family: "Haffer";
+  src: url("../fonts/HafferMedium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Haffer";
+  src: url("../fonts/HafferMediumItalic.woff2") format("woff2");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Haffer";
+  src: url("../fonts/HafferXHBold.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Haffer";
+  src: url("../fonts/HafferXHBoldItalic.woff2") format("woff2");
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* =========================
+   SAANS
+========================= */
+
+@font-face {
+  font-family: "Saans";
+  src: url("../fonts/SaansRegular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Saans";
+  src: url("../fonts/SaansRegularItalic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Saans";
+  src: url("../fonts/SaansMedium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Saans";
+  src: url("../fonts/SaansBold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* =========================
+   BASE
+========================= */
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--fs-7);
+  line-height: var(--lh-base);
+}
+
+/* =========================
+   HEADINGS
+========================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  line-height: var(--lh-tight);
+  font-weight: 600;
+  margin-bottom: 0.75em;
+  margin-bottom: 1em;
+  letter-spacing: 1px;
+}
+
+h1 {
+  font-size: var(--fs-1);
+  font-weight: 900;
+  &:has(span) {
+    border-left: 0.25em solid
+      color-mix(in srgb, var(--accent-color) 30%, transparent);
+    padding-left: 0.5em;
+  }
+  > span {
+    display: block;
+    font-size: 0.5em;
+    opacity: 0.7;
+    font-weight: 400;
+  }
+}
+h2 {
+  font-size: var(--fs-2);
+}
+h3 {
+  font-size: var(--fs-3);
+  font-weight: 500;
+}
+h4 {
+  font-size: var(--fs-4);
+  font-weight: 500;
+  * {
+    font-size: 0.6em !important;
+  }
+}
+h5 {
+  font-size: var(--fs-5);
+  font-weight: 500;
+}
+h6 {
+  font-size: var(--fs-6);
+  font-weight: 500;
+}
+
+/* =========================
+   TEXT BLOCKS
+========================= */
+
+p {
+  margin-bottom: 1rem;
+}
+
+.lead {
+  font-size: var(--fs-4);
+  font-weight: 200;
+  opacity: 0.8;
+  font-family: var(--font-mono);
+}
+
+span {
+  font: inherit;
+}
+
+p,
+ul,
+ol,
+li,
+blockquote {
+  font-family: var(--font-body);
+}
+/* =========================
+   INLINE TEXT
+========================= */
+
+strong,
+b {
+  font-weight: 600;
+}
+
+em,
+i {
+  font-style: italic;
+}
+
+u {
+  text-decoration: underline;
+}
+
+small {
+  font-size: 0.66em;
+}
+
+mark {
+  background: color-mix(in srgb, var(--form-accent) 90%, transparent);
+  border-radius: 0.4em 0.2em 0.4em 0.2em;
+  padding: 0.1em 0.3em;
+  color: var(--accent-color);
+}
+
+/* =========================
+   LINKS
+========================= */
+
+a {
+  font-family: var(--font-mono);
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  font-size: 0.95em;
+}
+
+a:hover {
+  /* text-decoration: underline; */
+}
+
+a:focus-visible {
+  outline: 2px solid;
+  outline-offset: 2px;
+}
+
+/* =========================
+   FORM ELEMENTS
+========================= */
+
+button,
+label,
+input,
+textarea,
+select,
+fieldset,
+legend {
+  font-family: var(--font-body);
+}
+
+/* =========================
+   SEMANTIC
+========================= */
+
+abbr {
+  text-decoration: underline dotted;
+  cursor: help;
+}
+
+cite {
+  font-style: italic;
+  font-weight: 600 !important;
+  font-size: 0.85em;
+  opacity: 0.85;
+  font-family: var(--font-mono);
+}
+
+q {
+  font-style: italic;
+}
+
+dfn {
+  font-weight: 500;
+}
+
+time {
+  font: inherit;
+}
+
+/* =========================
+   QUOTES
+========================= */
+
+blockquote {
+  font-style: italic;
+  margin: 1.5rem 0;
+  padding-left: 0.75em;
+  border-left: 0.33em solid
+    color-mix(in srgb, var(--accent-color) 30%, transparent);
+  line-height: 1em;
+  p {
+    margin-bottom: 0.5em;
+  }
+}
+
+/* =========================
+   LISTS
+========================= */
+
+ul,
+ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+li {
+  margin-bottom: 0.25rem;
+}
+
+/* =========================
+   CODE TYPOGRAPHY
+========================= */
+
+code,
+kbd,
+samp {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  color: var(--accent-color);
+}
+
+/* =========================
+   INLINE CODE
+========================= */
+
+code {
+  padding: 0.2em 0.4em;
+  border-radius: 0.25em;
+  background: var(--accent-color);
+  color: var(--form-accent);
+  border: 1px solid var(--overlay-color);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+/* =========================
+   CODE BLOCK
+========================= */
+
+pre {
+  font-family: var(--font-mono);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-bottom: 1rem;
+  position: relative;
+  background: var(--surface-color);
+  border: 1px solid var(--overlay-color);
+  border-radius: 8px;
+
+  /* mejora legibilidad */
+  line-height: 1.5;
+  &::after {
+    content: attr(data-lang);
+    position: absolute;
+    top: 0.5rem;
+    right: 0.8rem;
+
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+
+    padding: 0.2em 0.5em;
+    border-radius: 4px;
+
+    background: var(--overlay-color);
+    color: var(--accent-color);
+  }
+}
+
+/* evita doble padding */
+pre code {
+  padding: 0;
+  background: transparent;
+  border: none;
+  color: inherit;
+}
+
+/* =========================
+   KEYBOARD INPUT
+========================= */
+kbd {
+  border: 1px solid;
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+}
+
+samp {
+  background: var(--surface-light-color);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+
+  /* diferenciar de code */
+  opacity: 0.9;
+}
+
+/* =========================
+   EDIT / STATE
+========================= */
+
+del,
+s {
+  text-decoration: line-through;
+}
+
+ins {
+  text-decoration: underline;
+}
+
+/* =========================
+   SUB / SUP
+========================= */
+
+sub,
+sup {
+  font-size: 0.5em;
+  line-height: 0;
+  position: relative;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.25em;
+}
+
+/* =========================
+   SEPARATORS
+========================= */
+
+hr {
+  border: none;
+  border-top: 1px solid var(--surface-color);
+  margin: 2rem 0;
+}
+
+/* =========================
+   DETAILS
+========================= */
+
+.details-group{
+  background: color-mix(in srgb, var(--accent-color) 50%, transparent);
+  border: 1px solid var(--overlay-color);
+  border-radius: 8px;
+  padding: .5rem 2rem;
+  transition: all 0.25s ease-in-out;
+}
+
+/* Light styling for presentation */
+details {
+  border-block-end: 1px solid color-mix(in srgb, var(--accent-color-contrast) 10%, transparent);
+  padding-block: .5rem;
+  text-transform: capitalize;
+  color: var(--accent-color-contrast);
+  &:last-of-type {
+    border-block-end: none;
+  }
+}
+
+summary {
+  font-family: var(--font-mono);
+  cursor: pointer;
+  font-weight: 500;
+  position: relative;
+  
+  anchor-name: --summary;
+  &::marker {
+    content: "";
+  }
+  &::before,
+  &::after {
+    content: "";
+    border-block-start: 3px solid var(--form-accent);
+    height: 0;
+    width: 1rem;
+    transition: all 0.25s ease-in-out;
+    inset-block-start: 50%;
+    inset-inline-end: 0;
+    position: absolute;
+    position-anchor: --summary;
+    position-area: top end;
+  }
+  &::after {
+    transform: rotate(90deg);
+    transform-origin: 50%;
+  }
+}
+
+details[open] summary {
+  margin-bottom: .75rem;
+}
+
+/* Rotate the line when open */
+details[open] summary::after {
+  transform: rotate(0deg);
+}

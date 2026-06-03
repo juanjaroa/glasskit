@@ -1,0 +1,129 @@
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  border-radius: 0.5rem 1.5rem 0.5rem 1.5rem;
+  width: 100%;
+  max-width: 500px;
+  display: block;
+    margin: 0 auto;
+  /* border: 2px solid var(--surface-color); */
+  /* background: var(--surface-light-color); */
+}
+input,
+textarea {
+  background-color: var(--form-surface);
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  border-radius: 0.75rem 0.25rem 0.75rem 0.25rem;
+  width: 100%;
+  outline: none;
+  border: 1px solid rgba(180, 201, 207, 0.5);
+  color: var(--accent-color);
+
+  &[type="text"],
+  &[type="email"] {
+    &:focus {
+      box-shadow: 0 0 0px 1000px var(--form-surface) inset !important;
+      &:placeholder-shown {
+        outline: 3px solid var(--form-accent) !important;
+        color: var(--accent-color) !important;
+      }
+    }
+    &:focus:valid {
+      outline: 3px solid var(--form-success);
+    }
+    &:focus:not(:placeholder-shown):invalid {
+      outline: 3px solid var(--form-error);
+      color: var(--form-error);
+    }
+    &:not(:placeholder-shown):invalid {
+      outline: 3px solid var(--form-error);
+    }
+  }
+  &:-webkit-autofill {
+    box-shadow: 0 0 0px 1000px var(--form-surface) inset !important;
+    -webkit-text-fill-color: var(--accent-color) !important;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+}
+
+textarea {
+  border-radius: 0.25rem 0.75rem 0.25rem 0.75rem;
+  resize: vertical;
+  &:focus {
+    box-shadow: 0 0 0px 1000px var(--form-surface) inset !important;
+    outline: 3px solid var(--form-accent) !important;
+    &:placeholder-shown {
+      
+      color: var(accent-color) !important;
+    }
+    &:valid {
+      /*outline: 3px solid var(--form-success);*/
+    }
+  }
+  &:focus &:focus:not(:placeholder-shown):invalid {
+    outline: 3px solid var(--form-error);
+    color: var(--form-error);
+  }
+  &:not(:placeholder-shown):invalid {
+    outline: 3px solid var(--form-error);
+  }
+}
+input:invalid {
+}
+input:valid {
+}
+
+input:focus-within {
+}
+
+button[type="submit"] {
+  background-color: var(--form-accent);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.2em;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.25s ease-out;
+  border-radius: 0.75rem 0.25rem 0.75rem 0.25rem;
+  width: 100%;
+  &:hover {
+  }
+}
+
+fieldset {
+  display: grid;
+  gap: 0.5rem;
+  border: none;
+  legend {
+    font-size: 1.5rem;
+    opacity: 0.7;
+  }
+  button {
+    margin-top: 1.25rem;
+  }
+  label span {
+    font-size: 0.875rem;
+    opacity: 0.75;
+    margin-bottom: 0.2rem;
+  }
+}
+
+label:has(input:required) span::after {
+  content: "*";
+  color: var(--form-error);
+  font-size: 1.15em;
+  font-weight: 600;
+}
+
+.form-context {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}

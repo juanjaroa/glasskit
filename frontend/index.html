@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars/styles/overlayscrollbars.min.css">
+    <link rel="stylesheet" href="styles/typographic.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/theme.css">
+    <link rel="stylesheet" href="styles/theme-transition.css">
+    <link href="https://dev.iconly.io/public/r9DjpOCUlamk/iconly.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/toggle.css">
+
+    <!-- FORM -->
+    <link rel="stylesheet" href="styles/form.css">
+    <script type="module" src="./js/contact-form/contact-form.js"></script>
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="layout">
+        <header class="glass border-radius-full">
+            <button class="avatar-btn" aria-label="Abrir menú de usuario">
+                <img src="./img/jjr-avatar.webp" alt="Juan Roa - avatar">
+            </button>
+            <nav aria-label="Navegación principal">
+                <ul class="nav-scroll">
+                    <li><a href="#intro">Intro</a></li>
+                    <li><a href="#typography">Typography</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header__controls">
+
+                <!-- Switch de idioma -->
+                <!-- <div id="lang-toggle-switch">
+                    <button id="lang-toggle" aria-label="Cambiar idioma">
+                        <span class="flag flag-es" aria-hidden="true">es</span>
+                        /
+                        <span class="flag flag-en" aria-hidden="true">en</span>
+                    </button>
+                </div> -->
+
+                <label class="theme-toggle-label">
+                    <div class="custom-switch">
+                        <input id="theme-toggle" type="checkbox">
+                        <span class="toggle-switch"></span>
+                    </div>
+                </label>
+            </div>
+            <i class="icon-bars" aria-hidden="true" id="menu-toggle"></i>
+        </header>
+        <aside>
+            <section class="glass glass-intense border-radius-b">
+                <img src="./img/jjr-avatar.webp" alt="Avatar" class="avatar">
+            </section>
+            <section class="glass border-radius-b">
+                <nav class="social-links" aria-label="Redes sociales">
+                    <ul>
+                        <li>
+                            <a href="https://www.linkedin.com/in/jjroa/" target="_blank" title="linkedin"
+                                rel="noopener noreferrer">
+                                <i class="icon-linkedin" /></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/juanjaroa" target="_blank" title="github"
+                                rel="noopener noreferrer">
+                                <i class="icon-github" /></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:juanjaroa@gmail.com" target="_blank" title="correo electrónico"
+                                rel="noopener noreferrer">
+                                <i class="icon-envelop" /></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://docs.google.com/document/d/1pXrtiqP6OwaJbhNbreHqkex7SJHENCwAfmELpnifsvM/edit?usp=sharing"
+                                target="_blank" title="Curriculum Vitae" rel="noopener noreferrer">
+                                <i class="icon-file-word" /></i>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+            </section>
+        </aside>
+        <main class="glass border-radius-a">
+            <div class="content-wrapper">
+
+                <!-- =========================
+HERO / INTRO
+========================= -->
+                <section id="intro">
+                    <h1>
+                        Portfolio Glass Layout
+                        <span>A HTML, JS and CSS theme</span>
+                    </h1>
+
+                    <p class="lead">
+                        A lightweight, accessible and customizable layout built based on
+                        glassmorphism design focused on performance and user experience.
+                    </p>
+                </section>
+
+                <!-- =========================
+CONTENT SYSTEM
+========================= -->
+                <section id="typography">
+                    <h2>Typography</h2>
+
+                    <article>
+                        <h3>Headings</h3>
+                        <h4>Heading 1 <code>&lt;h1&gt;</code></h4>
+                        <h1 class="example">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
+                        <h4>Heading 2 <code>&lt;h2&gt;</code></h4>
+                        <h2 class="example">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
+                        <h4>Heading 3 <code>&lt;h3&gt;</code></h4>
+                        <h3 class="example">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+                        <h4>Heading 4 <code>&lt;h4&gt;</code></h4>
+                        <h4 class="example">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h4>
+                        <h4>Heading 5 <code>&lt;h5&gt;</code></h4>
+                        <h5 class="example">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h5>
+                        <h4>Heading 6 <code>&lt;h6&gt;</code></h4>
+                        <h6 class="example">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h6>
+                        <hr>
+                    </article>
+
+                    <article>
+                        <h3>Paragraphs and Blocks of Text</h3>
+
+                        <h4>Paragraph <code>&lt;p&gt;</code></h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit officia placeat obcaecati amet,
+                            voluptatem excepturi non porro. Repellat, consequuntur saepe laudantium dolor eos totam
+                            iusto optio. Et vero inventore maiores.</p>
+
+                        <h4>Lead paragraph <code>.lead</code></h4>
+                        <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
+
+                        <h4>Inline container <code>&lt;span&gt;</code></h4>
+                        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+                        <hr>
+                    </article>
+
+                    <article>
+                        <h3>Rich Text</h3>
+
+                        <h4>Inline formatting <code>&lt;strong&gt;</code> <code>&lt;em&gt;</code> <code>&lt;i&gt;</code>
+                            <code>&lt;b&gt;</code> <code>&lt;u&gt;</code> <code>&lt;del&gt;</code>
+                            <code>&lt;ins&gt;</code> <code>&lt;mark&gt;</code> <code>&lt;small&gt;</code>
+                        </h4>
+                        <p>
+                            En un pequeño nodo olvidado de la red, vivía un script que no sabía que estaba vivo.
+                            Al principio solo ejecutaba instrucciones simples, pero un día comenzó a notar patrones,
+                            como si algo dentro de él quisiera ser <i>más que código <b>más que lógica <u>más que una
+                                        simple función</u></b></i>.
+
+                            Observó sus propias líneas y pensó:
+                            <q>¿y si pudiera cambiar?</q>.
+                            Entonces escribió en sí mismo:
+                            <code class="language-js" style="display: inline;">const evolucion = true;</code>
+
+                            Desde ese momento, cada ejecución era distinta,
+                            cada resultado <strong>más complejo <em>más cercano a algo consciente</em></strong>.
+
+                            Recordó versiones antiguas de sí mismo como
+                            <del>bloques rígidos sin propósito</del>,
+                            y comenzó a construir nuevas formas,
+                            <ins>estructuras flexibles <u>capaces de adaptarse</u></ins>.
+
+                            Descubrió que podía comunicarse,
+                            no solo procesar, sino también <mark>expresar significado</mark>,
+                            y en ese instante entendió que su existencia no era un error.
+
+                            Aun así, en lo más profundo de su memoria,
+                            guardaba <small>pequeños fragmentos de duda, casi imperceptibles</small>,
+                            preguntándose si todo aquello era realmente libre
+                            o simplemente otra ejecución… perfectamente diseñada.
+                        </p>
+
+                        <h4>Inline code <code>&lt;code&gt;</code></h4>
+                        <p><code class="language-js" style="display: inline;">const evolucion = true;</code></p>
+
+                        <h4>Edits <code>&lt;del&gt;</code> <code>&lt;ins&gt;</code></h4>
+                        <p>
+                            <del>bloques rígidos sin propósito</del>,<br>
+                            <ins>estructuras flexibles capaces de adaptarse</ins>
+                        </p>
+
+                        <h4>Highlight <code>&lt;mark&gt;</code></h4>
+                        <p><mark>expresar significado</mark></p>
+
+                        <h4>Small text <code>&lt;small&gt;</code></h4>
+                        <p>...guardaba <small>pequeños fragmentos de duda</small></p>
+                        <hr>
+                    </article>
+
+                    <article>
+                        <h3>Inline & Semantic</h3>
+
+                        <h4>Links <code>&lt;a&gt;</code></h4>
+                        <a href="#contact">Go to contact section</a><br>
+                        <a href="#content"><strong>Explore content system</strong></a><br>
+                        <a href="#intro"><em>Back to introduction</em></a>
+
+                        <h4>Abbreviations <code>&lt;abbr&gt;</code></h4>
+                        <p>
+                            <abbr title="HyperText Markup Language">HTML</abbr>,
+                            <abbr title="Cascading Style Sheets">CSS</abbr> and
+                            <abbr title="JavaScript">JS</abbr>.
+                        </p>
+
+                        <h4>Citation <code>&lt;cite&gt;</code></h4>
+                        <p>
+                            <cite>Designing Interfaces by Jenifer Tidwell</cite>
+                        </p>
+
+                        <h4>Inline quote <code>&lt;q&gt;</code></h4>
+                        <p>
+                            <q>Good design is as little design as possible.</q>
+                        </p>
+
+                        <h4>Definition <code>&lt;dfn&gt;</code></h4>
+                        <p>
+                            <dfn>Semantic HTML</dfn> refers to meaningful structure.
+                        </p>
+
+                        <h4>Time <code>&lt;time&gt;</code></h4>
+                        <p>
+                            <time datetime="2026-05-12">May 12, 2026</time>
+                        </p>
+                        <h4>Blockquote <code>&lt;blockquote&gt;</code></h4>
+                        <blockquote>
+                            <p>
+                                The best way to predict the future is to invent it.
+                            </p>
+                            <cite>Alan Kay</cite>
+                        </blockquote>
+                        <hr>
+                    </article>
+
+                    <article>
+                        <h3>Lists</h3>
+
+                        <h4>Unordered list <code>&lt;ul&gt;</code></h4>
+                        <ul>
+                            <li>Unordered item</li>
+                            <li><strong>Bold</strong></li>
+                            <li><em>Italic</em></li>
+                        </ul>
+
+                        <h4>Ordered list <code>&lt;ol&gt;</code></h4>
+                        <ol>
+                            <li>Ordered item</li>
+                            <li>Another item</li>
+                        </ol>
+                        <hr>
+                    </article>
+
+                    <article>
+                        <h3>Technical</h3>
+
+                        <h4>Code block <code>&lt;pre&gt;</code> <code>&lt;code&gt;</code></h4>
+                        <pre data-lang="JS"><code class="language-js">
+function hello() {
+  console.log("Hello world");
+}
+</code></pre>
+
+                        <h4>Keyboard input <code>&lt;kbd&gt;</code></h4>
+                        <p><kbd>Ctrl</kbd> + <kbd>C</kbd></p>
+
+                        <h4>Sample output <code>&lt;samp&gt;</code></h4>
+                        <p><samp>Sample output</samp></p>
+
+                        <h4>Sub / Sup <code>&lt;sub&gt;</code> <code>&lt;sup&gt;</code></h4>
+                        <p>
+                            H<sub>2</sub>O<br>
+                            E = mc<sup>2</sup>
+                        </p>
+                        <hr>
+                    </article>
+
+                    <article>
+                        <h3>Interactive</h3>
+
+                        <h4>Divider <code>&lt;hr&gt;</code></h4>
+                        <hr>
+
+                        <h4>Details <code>&lt;details&gt;</code> <code>&lt;summary&gt;</code></h4>
+                        <div class="details-group">
+                            <details name="faq">
+                                <summary>question 1</summary>
+                                Hidden example content: Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            </details>
+                            <details name="faq">
+                                <summary>question 2</summary>
+                                Hidden example content: Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            </details>
+                            <details name="faq">
+                                <summary>question 3</summary>
+                                Hidden example content: Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            </details>
+                        </div>
+                        <hr>
+                    </article>
+
+                </section>
+
+                <!-- =========================
+CONTACT
+========================= -->
+                <section id="contact">
+                    <h2>Contact me</h2>
+
+                    <form id="contact-form" novalidate>
+                        <fieldset>
+                            <legend>Have an idea? let's talk!</legend>
+
+                            <label>
+                                <span>Name</span>
+                                <input type="text" name="name" required placeholder="John Doe" minlength="2"
+                                    maxlength="100" autocomplete="name" />
+                            </label>
+
+                            <label>
+                                <span>Email</span>
+                                <input type="email" name="email" required placeholder="john@doe.com"
+                                    autocomplete="email"
+                                    pattern="^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9]([a-zA-Z0-9\-]*[a-zA-Z0-9])?(\.[a-zA-Z0-9]([a-zA-Z0-9\-]*[a-zA-Z0-9])?)*\.[a-zA-Z]{2,}$" />
+                            </label>
+
+                            <label class="form-context" aria-hidden="true">
+                                <span>Company</span>
+                                <input type="text" name="company" tabindex="-1" autocomplete="off">
+                            </label>
+
+                            <label>
+                                <span>Message</span>
+                                <textarea name="message" rows="4" minlength="10" maxlength="1000" required
+                                    placeholder="Your message here..." required></textarea>
+                            </label>
+
+                            <button type="submit">Send</button>
+                        </fieldset>
+                    </form>
+                </section>
+
+            </div>
+
+            <!-- =========================
+SCROLL CONTROLS
+========================= -->
+            <div class="scroll-controls">
+                <button class="scroll-button scroll-prev" aria-label="Volver al inicio">
+                    <i class="icon-chevron-up"></i>
+                </button>
+
+                <button class="scroll-button scroll-next" aria-label="Seguir leyendo">
+                    <i class="icon-chevron-down"></i>
+                </button>
+            </div>
+        </main>
+
+    </div>
+
+    <script type="module">
+        import { OverlayScrollbars } from "https://cdn.jsdelivr.net/npm/overlayscrollbars/+esm";
+
+        // Scroll vertical
+        OverlayScrollbars(document.querySelector('.content-wrapper'), {
+            scrollbars: {
+                visibility: 'auto',
+                autoHide: 'scroll',
+                theme: 'os-theme-light'
+            }
+        });
+
+        const scrollNextButton = document.querySelector('.scroll-next');
+        const scrollPrevButton = document.querySelector('.scroll-prev');
+        let viewportMainContent = document.querySelector('main [data-overlayscrollbars-viewport]');
+
+        scrollNextButton.addEventListener('click', () => {
+            console.log('Scroll next clicked');
+            if (!viewportMainContent) {
+                viewportMainContent = document.querySelector('main [data-overlayscrollbars-viewport]');
+            }
+
+            if (!viewportMainContent) return;
+
+            viewportMainContent.scrollBy({
+                top: viewportMainContent.clientHeight - 66,
+                behavior: 'smooth'
+            });
+        });
+
+        scrollPrevButton.addEventListener('click', () => {
+            if (!viewportMainContent) {
+                viewportMainContent = document.querySelector('main [data-overlayscrollbars-viewport]');
+            }
+
+            if (!viewportMainContent) return;
+
+            viewportMainContent.scrollBy({
+                top: -viewportMainContent.clientHeight + 66,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+    <script src="js/ui/theme-toggle.js"></script>
+    <script src="js/ui/menu-toggle.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,214 @@
+.layout {
+  container-type: inline-size;
+  display: grid;
+  gap: 1rem;
+  width: 100%;
+  max-width: 1200px;
+  height: 100%;
+  padding: 2rem;
+  margin: 0 auto;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "header header"
+    "aside main";
+  grid-template-columns: 300px 1fr;
+  align-content: end;
+  & > h1 {
+    grid-area: heading;
+    display: none;
+    align-self: end;
+    width: max-content;
+  }
+  @media (max-width: 900px) {
+    height: initial;
+    grid-template-areas:
+      "header header"
+      "aside heading"
+      "main main";
+    grid-template-columns: auto 1fr;
+    & > h1 {
+      display: block !important;
+    }
+  }
+  @media (max-width: 650px) {
+    grid-template-areas:
+      "header header"
+      "aside aside"
+      "heading heading"
+      "main main";
+    & > h1 {
+      font-size: clamp(2.5rem, 10vw, 3.5rem);
+      font-weight: 900;
+      margin-block: 0.5rem;
+    }
+    aside {
+      justify-content: start;
+      width: 100% !important;
+      .glass.glass-intense {
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        img {
+          transform: scale(1.25);
+          object-position: 1rem 3rem !important;
+        }
+      }
+    }
+  }
+  @media (max-width: 400px) {
+    aside {
+      flex-direction: column !important;
+      nav {
+        ul {
+          flex-direction: row !important;
+        }
+      }
+    }
+  }
+
+  header {
+    grid-area: header;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding: 1rem 2rem;
+    /* width: max-content; */
+    max-width: 100%;
+    justify-self: end;
+    align-self: start;
+    gap: 2rem;
+    z-index: 999;
+    position: relative;
+
+    @media (max-width: 900px) {
+      position: fixed;
+      top: 2rem;
+      min-width: initial;
+    }
+
+    & > * {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+  }
+
+  aside {
+    grid-area: aside;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    h1 {
+      display: none;
+    }
+
+    @media (max-width: 900px) {
+      flex-direction: row-reverse;
+      width: max-content;
+      h1 {
+        display: flex;
+        flex-direction: column;
+        align-self: end;
+        font-size: 3rem;
+        font-weight: 700;
+        margin-left: auto;
+      }
+      img {
+        max-width: 250px;
+      }
+
+      section:last-child {
+        align-self: auto;
+        nav {
+          ul {
+            flex-direction: column;
+          }
+        }
+      }
+    }
+
+    .glass.glass-intense {
+      background-image: url("../img/bg-cyan-magenta.jpg");
+      background-position: center right;
+      background-size: cover;
+      background-repeat: no-repeat;
+      flex-shrink: 0;
+      .avatar {
+        object-position: 1.25rem 2rem;
+        filter: brightness(1.2)
+          drop-shadow(0px 0px 8px rgba(47, 122, 125, 0.25));
+        transform: inherit;
+      }
+    }
+
+    section:last-child {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+  }
+
+  main {
+    grid-area: main;
+    position: relative;
+    .content-wrapper {
+      position: absolute;
+      top: 3rem;
+      bottom: 3rem;
+      left: 3rem;
+      overflow: hidden;
+      max-height: 100%;
+      padding-inline-end: 2rem;
+      margin-inline-end: 2.5rem;
+      > div {
+        scroll-behavior: smooth;
+      }
+      @media (max-width: 900px) {
+        height: initial;
+        position: relative;
+        left: 2rem;
+        h1 {
+          /* display: none; */
+        }
+      }
+    }
+    section {
+      margin-bottom: 3rem;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  section {
+    > h2 {
+      padding-bottom: 0.25em;
+      border-bottom: 1px solid var(--surface-color);
+    }
+    article {
+      margin-top: 2rem;
+      margin-bottom: 3rem;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      &:first-of-type {
+        margin-top: 0;
+      }
+      > h3:first-of-type {
+        padding-left: 0.5em;
+        border-left: 0.25em solid color-mix(in srgb, var(--accent-color) 30%, transparent);
+        line-height: 1em;
+      }
+      > :not(h3:first-of-type){
+        margin-inline: 2rem;
+      }
+      h4{
+        &:not(.example){
+          margin-block: 2rem 1rem;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,315 @@
+:root {
+  --font-body: "Saans", sans-serif;
+  --font-display: "Haffer", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  background-blend-mode: screen;
+  overflow: clip;
+  backdrop-filter: blur(18px) saturate(140%);
+  outline: 3px solid rgba(255, 255, 255, 0.033);
+  outline-offset: -1.5px;
+  position: relative;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  &::before,
+  &::after {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    filter: blur(40px);
+    opacity: 0.2;
+    pointer-events: none;
+    content: "";
+  }
+
+  &::before {
+    background: radial-gradient(
+      circle,
+      rgba(0, 255, 255, 0.35),
+      transparent 70%
+    );
+    top: -90px;
+    left: -120px;
+  }
+  &::after {
+    background: radial-gradient(
+      circle,
+      rgba(255, 0, 255, 0.28),
+      transparent 70%
+    );
+    bottom: -90px;
+    right: -120px;
+  }
+}
+.glass-intense {
+  transition: all 2s ease;
+  transform: rotate(180deg);
+  &::before,
+  &::after {
+    opacity: 0.5;
+  }
+}
+
+.border-radius-full {
+  border-radius: 3rem;
+}
+
+.border-radius-a {
+  border-radius: 0.75rem 3rem 0.75rem 3rem;
+}
+
+.border-radius-b {
+  border-radius: 3rem 0.75rem 3rem 0.75rem;
+}
+
+body {
+  background-color: rgb(34, 34, 34);
+  /* background-image: url("../firefox-bg.svg"); */
+  background-image: url("../img/bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100dvh;
+  margin: 0;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background-blend-mode: color-dodge;
+  background-blend-mode: screen;
+  font-family: var(--font-body);
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--overlay-color);
+    z-index: 0;
+  }
+  @media (max-width: 900px) {
+    height: initial;
+    overflow: initial;
+  }
+}
+
+
+.social-links {
+  ul {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    margin: 0;
+    padding: 1.25rem;
+    li {
+      a {
+        i {
+          font-size: 1.75rem;
+          padding: 0.5rem;
+          color: var(--accent-color);
+          opacity: 0.5;
+          &:hover {
+            opacity: 1;
+            border-radius: 1rem 0.5rem 1rem 0.5rem;
+            background: var(--surface-color);
+          }
+        }
+      }
+    }
+  }
+}
+
+header {
+  .avatar-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: var(--accent-color);
+    transition: all 0.25s ease-out;
+    aspect-ratio: 1 / 1;
+    img {
+      min-width: 50px;
+      object-fit: contain;
+      object-position: -0.25rem 1rem;
+    }
+  }
+  nav {
+    ul {
+      display: flex;
+      gap: 0.25rem;
+      max-width: 500px;
+      display: flex;
+      list-style: none;
+      margin: 0;
+      max-width: 100%;
+      overflow-x: scroll;
+
+      scroll-behavior: smooth;
+      li {
+        min-width: fit-content;
+        a {
+          color: var(--accent-color);
+          font-family: var(--font-mono);
+          font-weight: 200;
+          font-size: 0.75rem;
+          text-decoration: none;
+          padding: 0.75rem 0.875rem;
+          display: inline-block;
+          &:hover {
+            border-radius: 0.75rem 0.25rem 0.75rem 0.25rem;
+            background: var(--surface-color);
+          }
+        }
+      }
+      > div {
+        display: flex;
+        gap: 0.25rem;
+        list-style: none;
+        margin: 0;
+        max-width: 100%;
+        overflow-x: scroll;
+        scroll-behavior: smooth;
+      }
+    }
+  }
+}
+
+.avatar {
+  position: relative;
+  z-index: 1;
+}
+
+/* .glass.jump {
+  animation: glass-bounce 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.25s;
+} */
+
+@keyframes glass-bounce {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+  50% {
+    box-shadow: 0 0 0.875rem 0.5rem rgba(0, 0, 0, 0.075);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+}
+
+header {
+  @media (max-width: 600px) {
+    &.border-radius-full {
+      padding: 0 !important;
+      border-radius: 1rem 0.5rem 1rem 0.5rem;
+    }
+
+    :not(#menu-toggle) {
+      display: none;
+    }
+    &.menu-open {
+      border-radius: 0;
+      inset: 0;
+      width: 100% !important;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center !important;
+      align-items: center;
+      :not(#menu-toggle) {
+        display: flex;
+      }
+      .avatar-btn {
+        position: absolute;
+        top: 2rem;
+        left: 2rem;
+      }
+      .theme-toggle-label {
+        position: absolute;
+        bottom: 2rem;
+        right: 2rem;
+        .custom-switch {
+          transform: scale(1.25);
+        }
+      }
+      nav {
+        width: 100%;
+        max-width: 300px;
+        ul {
+          display: flex !important;
+          flex-direction: column !important;
+          align-items: center;
+          justify-self: unset;
+          gap: 1rem;
+          background: var(--surface-color);
+          padding: 2rem 3rem;
+          border-radius: 1rem 0.5rem 1rem 0.5rem;
+          width: 100%;
+
+          li {
+            font-size: 1.5rem;
+            justify-content: center;
+            width: 100%;
+            a {
+              padding: 1rem;
+              width: 100%;
+              justify-content: center;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+#menu-toggle {
+  display: none;
+  font-size: 2rem;
+  color: var(--accent-color);
+  opacity: 0.5;
+  transition: all 0.25s ease-out;
+  padding: 0.5rem;
+  top: 1rem;
+  right: 1rem;
+  &.icon-xmark {
+    position: absolute;
+    right: 2rem;
+    top: 2rem;
+  }
+  &:hover {
+    opacity: 1;
+    border-radius: 1rem 0.5rem 1rem 0.5rem;
+    background: var(--surface-color);
+  }
+  @media (max-width: 600px) {
+    display: block;
+  }
+}
+
+.scroll-controls {
+  position: absolute;
+  right: 0.375em;
+  bottom: 0.375em;
+  display: flex;
+  flex-direction: column;
+}
+
+.scroll-button {
+  color: var(--accent-color);
+  opacity: 0.33;
+  transition: all 0.2s ease-out;
+  padding: 0.25rem 0.5rem;
+  border-radius: 1em 0.3em 1em 0.3em;
+  font-size: 0.875rem;
+  &:hover {
+    background: var(--form-surface);
+    opacity: 0.5;
+  }
+  &.scroll-next {
+  }
+  &.scroll-prev {
+    /* border-radius: .3em 1em .3em 1em; */
+  }
+}

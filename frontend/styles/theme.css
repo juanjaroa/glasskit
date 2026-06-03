@@ -1,0 +1,82 @@
+:root {
+  --accent-color: #222222;
+  --accent-color-contrast: rgb(220, 220, 220);
+  --surface-color: rgba(0, 0, 0, 0.08);
+  --surface-light-color:rgba(255, 255, 255, 0.2);
+  --overlay-color: rgba(255, 255, 255, 0.15);
+  color: var(--accent-color);
+  --form-accent: rgb(51,122,183);
+  --form-surface: rgba(255, 255, 255, 0.3);
+  --form-success: rgb(53, 134, 99);
+  --form-error: rgb(255, 91, 91);
+}
+
+.dark {
+  --accent-color: rgb(220, 220, 220);
+  --accent-color-contrast: rgb(51, 51, 51);
+  --surface-color: rgba(255, 255, 255, 0.08);
+  --surface-light-color: var(--surface-color);
+  --overlay-color: rgba(0, 0, 0, 0.2);
+  color: var(--accent-color);
+  --form-accent: rgb(30, 75, 55);
+  --form-surface: rgba(255, 255, 255, 0.15);
+}
+
+.dark body {
+  background-blend-mode: difference;
+}
+
+.dark .glass {
+  background: rgba(0, 0, 0, 0.2);
+  outline: 2.5px solid rgba(255, 255, 255, 0.02);
+  outline-offset: -1.5px;
+}
+
+.glass-intense {
+  animation: hueShift 10s ease-in-out infinite;
+}
+
+.dark .glass-intense {
+  animation: hueShiftDark 10s ease-in-out infinite;
+}
+
+@keyframes hueShift {
+  0% {
+    filter: hue-rotate(-30deg);
+  }
+  50% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(-30deg);
+  }
+}
+
+@keyframes hueShiftDark {
+  0% {
+    filter: hue-rotate(-80deg) saturate(0.95) brightness(0.95);
+  }
+  50% {
+    filter: hue-rotate(-50deg) saturate(0.95) brightness(0.95);
+  }
+  100% {
+    filter: hue-rotate(-80deg) saturate(0.95) brightness(0.95);
+  }
+}
+
+.dark .glass {
+  &::before {
+    background: radial-gradient(
+      circle,
+      rgba(0, 255, 119, 0.35),
+      transparent 70%
+    );
+  }
+  &::after {
+    background: radial-gradient(
+      circle,
+      rgba(132, 0, 255, 0.28),
+      transparent 70%
+    );
+  }
+}
