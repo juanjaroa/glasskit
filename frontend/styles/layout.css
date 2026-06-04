@@ -35,20 +35,28 @@
     height: initial;
     grid-template-areas:
       "header header"
-      "aside heading"
+      "aside aside"
       "main main";
     grid-template-columns: auto 1fr;
     & > h1 {
       display: block !important;
+    }
+    aside {
+      justify-content: start;
+      width: 100% !important;
+      .glass.glass-intense {
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+      }
     }
   }
   @media (max-width: 650px) {
     grid-template-areas:
       /*"header header"*/
       "aside aside"
-      "heading heading"
       "main main";
-    gap: 0.5rem;
+    gap: 1rem;
     padding: 1rem;
     & > h1 {
       font-size: clamp(2.5rem, 10vw, 3.5rem);
@@ -139,13 +147,16 @@
         nav {
           ul {
             flex-direction: column;
+            @media (min-width: 400px) {
+              padding-inline: clamp(0.5rem, 3vw, 1.5rem);
+            }
           }
         }
       }
     }
 
     .glass.glass-intense {
-      background-image: url("../img/bg-cyan-magenta.jpg");
+      background-image: url("../img/avatar-bg-b.webp");
       background-position: center right;
       background-size: cover;
       background-repeat: no-repeat;

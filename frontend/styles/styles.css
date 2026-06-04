@@ -45,7 +45,6 @@
 }
 .glass-intense {
   transition: all 2s ease;
-  transform: rotate(180deg);
   &::before,
   &::after {
     opacity: 0.5;
