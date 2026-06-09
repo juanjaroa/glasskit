@@ -3,14 +3,16 @@ export async function handleCV(request, env, ctx) {
 		return new Response('Method not allowed', { status: 405 });
 	}
 
-	/* if (request.url.includes('refresh=true')) {
+	if (request.url.includes('refresh=true')) {
 		const cache = caches.default;
-		const cacheKey = new Request('https://cache/cv');
+		const cleanUrl = new URL(request.url);
+		cleanUrl.search = '';
+		const cacheKey = new Request(cleanUrl.toString());
 
 		await cache.delete(cacheKey);
-
+		console.log('[CV] cache cleared');
 		return new Response('Cache eliminado');
-	} */
+	}
 
 	const cache = caches.default;
 	const cacheKey = new Request(request.url);
@@ -20,7 +22,10 @@ export async function handleCV(request, env, ctx) {
 	if (cachedResponse) {
 		console.log('[CV] cache HIT');
 
-		const response = cachedResponse.clone();
+		const response = new Response(cachedResponse.body, {
+			status: cachedResponse.status,
+			headers: cachedResponse.headers,
+		});
 		response.headers.set('X-Cache', 'HIT');
 
 		return response;
@@ -37,13 +42,13 @@ export async function handleCV(request, env, ctx) {
 		}
 
 		const newResponse = new Response(response.body, {
-            status: 200,
+			status: 200,
 			headers: {
 				'Content-Type': 'application/pdf',
 				'Content-Disposition': 'inline',
 				'Cache-Control': 'public, max-age=3600, s-maxage=3600',
 				'X-Cache': 'MISS',
-                'X-Source': 'google-docs'
+				'X-Source': 'google-docs',
 			},
 		});
 
