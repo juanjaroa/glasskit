@@ -1,21 +1,16 @@
+export function getCacheKey(request) {
+	const url = new URL(request.url);
+	url.search = '';
+	return new Request(url.toString());
+}
+
 export async function handleCV(request, env, ctx) {
 	if (request.method !== 'GET') {
 		return new Response('Method not allowed', { status: 405 });
 	}
 
-	if (request.url.includes('refresh=true')) {
-		const cache = caches.default;
-		const cleanUrl = new URL(request.url);
-		cleanUrl.search = '';
-		const cacheKey = new Request(cleanUrl.toString());
-
-		await cache.delete(cacheKey);
-		console.log('[CV] cache cleared');
-		return new Response('Cache eliminado');
-	}
-
 	const cache = caches.default;
-	const cacheKey = new Request(request.url);
+	const cacheKey = getCacheKey(request);
 
 	const cachedResponse = await cache.match(cacheKey);
 
@@ -32,16 +27,18 @@ export async function handleCV(request, env, ctx) {
 	}
 
 	const DOC_ID = '1pXrtiqP6OwaJbhNbreHqkex7SJHENCwAfmELpnifsvM';
-	const url = `https://docs.google.com/document/d/${DOC_ID}/export?format=pdf`;
+	const DOC_URL = `https://docs.google.com/document/d/${DOC_ID}/export?format=pdf`;
 
 	try {
-		const response = await fetch(url);
+		const response = await fetch(DOC_URL);
 
 		if (!response.ok) {
 			throw new Error(`Failed to fetch CV: ${response.statusText}`);
 		}
 
-		const newResponse = new Response(response.body, {
+		const buffer = await response.arrayBuffer();
+
+		const newResponse = new Response(buffer, {
 			status: 200,
 			headers: {
 				'Content-Type': 'application/pdf',
