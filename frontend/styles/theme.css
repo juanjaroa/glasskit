@@ -9,6 +9,7 @@
   --form-surface: rgba(255, 255, 255, 0.3);
   --form-success: rgb(53, 134, 99);
   --form-error: rgb(255, 91, 91);
+  color-scheme: light dark;
 }
 
 .dark {
@@ -20,6 +21,7 @@
   color: var(--accent-color);
   --form-accent: rgb(30, 75, 55);
   --form-surface: rgba(255, 255, 255, 0.15);
+  color-scheme: dark;
 }
 
 .dark body {

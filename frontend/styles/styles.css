@@ -12,7 +12,7 @@
   outline: 3px solid rgba(255, 255, 255, 0.033);
   outline-offset: -1.5px;
   position: relative;
-  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  box-shadow: 0 0 1rem 0rem var(--surface-color);
   &::before,
   &::after {
     position: absolute;
@@ -324,4 +324,13 @@ header {
   &.scroll-prev {
     /* border-radius: .3em 1em .3em 1em; */
   }
+}
+
+iframe{
+  border: none;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  aspect-ratio: 16/10;
+  background-color: transparent;
 }
