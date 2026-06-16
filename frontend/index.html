@@ -14,6 +14,8 @@
     <link href="https://dev.iconly.io/public/r9DjpOCUlamk/iconly.css" rel="stylesheet" />
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/toggle.css">
+    <link rel="stylesheet" href="styles/dialog.css">
+    <link rel="stylesheet" href="styles/buttons.css">
 
     <!-- FORM -->
     <link rel="stylesheet" href="styles/form.css">
@@ -41,15 +43,6 @@
                 </ul>
             </nav>
             <div class="header__controls">
-
-                <!-- Switch de idioma -->
-                <!-- <div id="lang-toggle-switch">
-                    <button id="lang-toggle" aria-label="Cambiar idioma">
-                        <span class="flag flag-es" aria-hidden="true">es</span>
-                        /
-                        <span class="flag flag-en" aria-hidden="true">en</span>
-                    </button>
-                </div> -->
 
                 <label class="theme-toggle-label">
                     <div class="custom-switch">
@@ -86,8 +79,8 @@
                             </a>
                         </li>
                         <li>
-                            <a href="https://docs.google.com/document/d/1pXrtiqP6OwaJbhNbreHqkex7SJHENCwAfmELpnifsvM/edit?usp=sharing"
-                                target="_blank" title="Curriculum Vitae" rel="noopener noreferrer">
+                            <a href="#" class="see-resume"
+                                title="Curriculum Vitae" rel="noopener noreferrer">
                                 <i class="icon-file-word" /></i>
                             </a>
                         </li>
@@ -99,9 +92,6 @@
         <main class="glass border-radius-a">
             <div class="content-wrapper">
 
-                <!-- =========================
-HERO / INTRO
-========================= -->
                 <section id="intro">
                     <h1>
                         Portfolio Glass Layout
@@ -114,9 +104,6 @@ HERO / INTRO
                     </p>
                 </section>
 
-                <!-- =========================
-CONTENT SYSTEM
-========================= -->
                 <section id="typography">
                     <h2>Typography</h2>
 
@@ -318,9 +305,6 @@ function hello() {
 
                 </section>
 
-                <!-- =========================
-CONTACT
-========================= -->
                 <section id="contact">
                     <h2>Contact me</h2>
 
@@ -359,9 +343,6 @@ CONTACT
 
             </div>
 
-            <!-- =========================
-SCROLL CONTROLS
-========================= -->
             <div class="scroll-controls">
                 <button class="scroll-button scroll-prev" aria-label="Volver al inicio">
                     <i class="icon-chevron-up"></i>
@@ -371,10 +352,42 @@ SCROLL CONTROLS
                     <i class="icon-chevron-down"></i>
                 </button>
             </div>
+
         </main>
 
     </div>
+    <dialog id="modal" class="glass border-radius-a">
+        <div class="modal-content">
 
+            <header class="modal-header">
+                <h2>Resume</h2>
+                <p class="">Puedes visualizarlo aquí o descargarlo en PDF</p>
+                <button class="close-btn">✕</button>
+            </header>
+
+            <main class="modal-body">
+                <iframe src="http://localhost:8787/api/cv" width="100%" height="500px"></iframe>
+            </main>
+
+            <footer class="modal-footer">
+                <a href="http://localhost:8787/api/cv" download class="regular-btn">Descargar PDF</a>
+            </footer>
+
+        </div>
+    </dialog>
+    <script>
+        const modal = document.getElementById('modal');
+        const resumeBtn = document.querySelector('.see-resume');
+        const closeBtn = modal.querySelector('.close-btn');
+
+        resumeBtn.addEventListener('click', () => {
+            modal.showModal();
+        });
+
+        closeBtn.addEventListener('click', () => {
+            modal.close();
+        });
+    </script>
     <script type="module">
         import { OverlayScrollbars } from "https://cdn.jsdelivr.net/npm/overlayscrollbars/+esm";
 
