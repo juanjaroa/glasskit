@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles/reset.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars/styles/overlayscrollbars.min.css">
     <link rel="stylesheet" href="styles/typographic.css">
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/theme.css">
@@ -389,25 +388,14 @@ function hello() {
         });
     </script>
     <script type="module">
-        import { OverlayScrollbars } from "https://cdn.jsdelivr.net/npm/overlayscrollbars/+esm";
-
-        // Scroll vertical
-        OverlayScrollbars(document.querySelector('.content-wrapper'), {
-            scrollbars: {
-                visibility: 'auto',
-                autoHide: 'scroll',
-                theme: 'os-theme-light'
-            }
-        });
-
         const scrollNextButton = document.querySelector('.scroll-next');
         const scrollPrevButton = document.querySelector('.scroll-prev');
-        let viewportMainContent = document.querySelector('main [data-overlayscrollbars-viewport]');
+        let viewportMainContent = document.querySelector('main > .content-wrapper');
 
         scrollNextButton.addEventListener('click', () => {
             console.log('Scroll next clicked');
             if (!viewportMainContent) {
-                viewportMainContent = document.querySelector('main [data-overlayscrollbars-viewport]');
+                viewportMainContent = document.querySelector('main > .content-wrapper');
             }
 
             if (!viewportMainContent) return;
@@ -420,7 +408,7 @@ function hello() {
 
         scrollPrevButton.addEventListener('click', () => {
             if (!viewportMainContent) {
-                viewportMainContent = document.querySelector('main [data-overlayscrollbars-viewport]');
+                viewportMainContent = document.querySelector('main > .content-wrapper');
             }
 
             if (!viewportMainContent) return;
