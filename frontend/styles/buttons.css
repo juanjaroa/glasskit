@@ -1,0 +1,14 @@
+a.regular-btn {
+  background-color: var(--form-accent);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.2em;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.25s ease-out;
+  border-radius: 0.75rem 0.25rem 0.75rem 0.25rem;
+  width: 100%;
+  &:hover {
+  }
+}
