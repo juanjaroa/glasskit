@@ -334,3 +334,80 @@ iframe{
   aspect-ratio: 16/10;
   background-color: transparent;
 }
+
+
+/* =========================
+Scrollbar styling
+========================= */
+
+/* Firefox */
+
+*{
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.4) transparent;
+}
+
+/* WebKit (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.25),
+    rgba(255, 255, 255, 0.1)
+  );
+  border-radius: 999px;
+
+  /* clave para efecto glass */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-clip: padding-box;
+
+  /* progressive enhancement */
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.2)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* esquina cuando hay scroll en ambos ejes */
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+
+/* scrollbar base */
+main .content-wrapper::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+/* thumb oculto por defecto */
+main .content-wrapper::-webkit-scrollbar-thumb {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 999px;
+}
+
+/* 👇 aparece cuando haces hover en TODO el contenedor */
+main .content-wrapper:hover::-webkit-scrollbar-thumb {
+  opacity: 1;
+}

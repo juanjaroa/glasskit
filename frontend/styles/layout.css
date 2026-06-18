@@ -189,6 +189,7 @@
       position: absolute;
       max-height: 100%;
       inset: clamp(1rem, 5vw, 3rem);
+      overflow: auto;
       > div {
         scroll-behavior: smooth;
       }
