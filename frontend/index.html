@@ -387,40 +387,10 @@ function hello() {
             modal.close();
         });
     </script>
-    <script type="module">
-        const scrollNextButton = document.querySelector('.scroll-next');
-        const scrollPrevButton = document.querySelector('.scroll-prev');
-        let viewportMainContent = document.querySelector('main > .content-wrapper');
 
-        scrollNextButton.addEventListener('click', () => {
-            console.log('Scroll next clicked');
-            if (!viewportMainContent) {
-                viewportMainContent = document.querySelector('main > .content-wrapper');
-            }
-
-            if (!viewportMainContent) return;
-
-            viewportMainContent.scrollBy({
-                top: viewportMainContent.clientHeight - 66,
-                behavior: 'smooth'
-            });
-        });
-
-        scrollPrevButton.addEventListener('click', () => {
-            if (!viewportMainContent) {
-                viewportMainContent = document.querySelector('main > .content-wrapper');
-            }
-
-            if (!viewportMainContent) return;
-
-            viewportMainContent.scrollBy({
-                top: -viewportMainContent.clientHeight + 66,
-                behavior: 'smooth'
-            });
-        });
-    </script>
-    <script src="js/ui/theme-toggle.js"></script>
-    <script src="js/ui/menu-toggle.js"></script>
+    <script src="js/ui/theme-toggle.js" type="module"></script>
+    <script src="js/ui/menu-toggle.js" type="module"></script>
+    <script src="js/ui/scroll-controls.js" type="module"></script>
 
 </body>
 
