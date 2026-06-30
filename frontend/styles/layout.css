@@ -220,8 +220,8 @@
       border-bottom: 1px solid var(--surface-color);
     }
     article {
-      margin-top: 2rem;
-      margin-bottom: 3rem;
+      margin-top: clamp(.5rem, 5vw, 1.5rem);
+      margin-bottom: clamp(.5rem, 5vw, 2.5rem);
       &:last-child {
         margin-bottom: 0;
       }
@@ -235,13 +235,28 @@
         line-height: 1em;
       }
       > :not(h3:first-of-type) {
-        margin-inline: clamp(0.25rem, 5vw, 2rem);
+        margin-inline: clamp(0.25rem, 4vw, 1.5rem);
       }
       h4 {
         &:not(.example) {
           margin-block: 2rem 1rem;
         }
       }
+      &.two-columns {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0rem;
+        @media (max-width: 900px) {
+          grid-template-columns: 1fr;
+        }
+      }
+      &.three-columns {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 0rem;
+        @media (max-width: 900px) {
+          grid-template-columns: 1fr;
+        }
     }
   }
 }
