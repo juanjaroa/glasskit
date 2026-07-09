@@ -2,7 +2,7 @@ import { sendData } from "./contact-form-api.js";
 
 const form = document.getElementById("contact-form");
 const submitBtn = form.querySelector('button[type="submit"]');
-const endpoint = "http://localhost:8787/api/contact";
+const endpoint = "/api/contact";
 
 function validateForm(form) {
   if (!form.checkValidity()) {
