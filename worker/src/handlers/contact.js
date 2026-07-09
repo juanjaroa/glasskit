@@ -6,13 +6,28 @@ function getCorsHeaders(origin) {
 	};
 }
 
-const allowedOrigins = [
-	'http://127.0.0.1:5500',
-	'http://localhost:5500',
-	'https://glass-layout.jroa.win',
-	'https://jroa.win',
-	'https://www.jroa.win',
-];
+function isOriginAllowed(origin) {
+	if (!origin) return true;
+
+	try {
+		const url = new URL(origin);
+		const hostname = url.hostname;
+
+		if (hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '::1') {
+			return true;
+		}
+
+		const allowedHosts = [
+			'glass-layout.jroa.win',
+			'jroa.win',
+			'www.jroa.win',
+		];
+
+		return allowedHosts.includes(hostname);
+	} catch {
+		return false;
+	}
+}
 
 export async function handleContactForm(request, env, ctx) {
 	const origin = request.headers.get('origin');
@@ -25,8 +40,7 @@ export async function handleContactForm(request, env, ctx) {
 		return new Response('Method not allowed', { status: 405 });
 	}
 
-	// Allow same-origin requests (no Origin header), block unknown cross-origin
-	if (origin && !allowedOrigins.includes(origin)) {
+	if (!isOriginAllowed(origin)) {
 		return new Response(JSON.stringify({ error: 'Forbidden' }), {
 			status: 403,
 			headers: { 'Content-Type': 'application/json', ...getCorsHeaders(origin) },
