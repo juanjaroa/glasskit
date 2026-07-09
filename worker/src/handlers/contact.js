@@ -1,26 +1,35 @@
-export async function handleContactForm(request, env, ctx) {
-	const corsHeaders = {
-		'Access-Control-Allow-Origin': 'http://127.0.0.1:5500',
+function getCorsHeaders(origin) {
+	return {
+		'Access-Control-Allow-Origin': origin || '*',
 		'Access-Control-Allow-Methods': 'POST, OPTIONS',
 		'Access-Control-Allow-Headers': 'Content-Type',
 	};
+}
+
+const allowedOrigins = [
+	'http://127.0.0.1:5500',
+	'http://localhost:5500',
+	'https://glass-layout.jroa.win',
+	'https://jroa.win',
+	'https://www.jroa.win',
+];
+
+export async function handleContactForm(request, env, ctx) {
+	const origin = request.headers.get('origin');
 
 	if (request.method === 'OPTIONS') {
-		return new Response(null, { headers: corsHeaders });
+		return new Response(null, { headers: getCorsHeaders(origin) });
 	}
 
 	if (request.method !== 'POST') {
 		return new Response('Method not allowed', { status: 405 });
 	}
 
-	const allowedOrigins = ['http://127.0.0.1:5500', 'http://localhost:5500', 'https://jroa.win', 'https://www.jroa.win'];
-
-	const origin = request.headers.get('origin');
-
-	if (!origin || !allowedOrigins.includes(origin)) {
+	// Allow same-origin requests (no Origin header), block unknown cross-origin
+	if (origin && !allowedOrigins.includes(origin)) {
 		return new Response(JSON.stringify({ error: 'Forbidden' }), {
 			status: 403,
-			headers: { 'Content-Type': 'application/json', ...corsHeaders },
+			headers: { 'Content-Type': 'application/json', ...getCorsHeaders(origin) },
 		});
 	}
 
@@ -29,7 +38,7 @@ export async function handleContactForm(request, env, ctx) {
 	if (!contentType.includes('application/json')) {
 		return new Response(JSON.stringify({ error: 'Invalid content type' }), {
 			status: 400,
-			headers: { 'Content-Type': 'application/json', ...corsHeaders },
+			headers: { 'Content-Type': 'application/json', ...getCorsHeaders(origin) },
 		});
 	}
 
@@ -41,7 +50,7 @@ export async function handleContactForm(request, env, ctx) {
 	} catch {
 		return new Response(JSON.stringify({ error: 'Invalid JSON' }), {
 			status: 400,
-			headers: { 'Content-Type': 'application/json', ...corsHeaders },
+			headers: { 'Content-Type': 'application/json', ...getCorsHeaders(origin) },
 		});
 	}
 
@@ -85,7 +94,7 @@ export async function handleContactForm(request, env, ctx) {
 		) {
 			return new Response(JSON.stringify({ error: 'Todos los campos son requeridos' }), {
 				status: 400,
-				headers: { 'Content-Type': 'application/json', ...corsHeaders },
+				headers: { 'Content-Type': 'application/json', ...getCorsHeaders(origin) },
 			});
 		}
 
@@ -191,12 +200,12 @@ export async function handleContactForm(request, env, ctx) {
 
 		return new Response(JSON.stringify({ ok: true, message: 'Mensaje enviado' }), {
 			status: 200,
-			headers: { 'Content-Type': 'application/json', ...corsHeaders },
+			headers: { 'Content-Type': 'application/json', ...getCorsHeaders(origin) },
 		});
 	} catch (err) {
 		return new Response(JSON.stringify({ error: err.message }), {
 			status: 500,
-			headers: { 'Content-Type': 'application/json', ...corsHeaders },
+			headers: { 'Content-Type': 'application/json', ...getCorsHeaders(origin) },
 		});
 	}
 }
