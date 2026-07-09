@@ -4,7 +4,7 @@
  */
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "worker",
+	"name": "glass-layout-api",
 	"main": "src/index.js",
 	"compatibility_date": "2026-05-29",
 	"observability": {
@@ -13,6 +13,10 @@
 	"upload_source_maps": true,
 	"compatibility_flags": [
 		"nodejs_compat"
+	],
+	"assets": { "directory": "../frontend", "binding": "ASSETS" },
+	"routes": [
+		{ "pattern": "glass-layout.jroa.win", "custom_domain": true }
 	]
 	/**
 	 * Smart Placement
